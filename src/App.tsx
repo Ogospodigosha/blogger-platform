@@ -1,14 +1,10 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import AppBar from '@mui/material/AppBar';
 import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import {CustomDrawer} from "./components/customDrawer/CustomDrawer";
-import {MainContent} from "./components/maincontent/MainContent";
 import {Navigate, Route, Routes} from "react-router-dom";
-import {Container} from "@mui/material";
-import {BlogsPage} from "./components/blogsPage/BlogsPage";
+import {BlogsPage} from "./features/blogs/blogsPage/BlogsPage";
 
 
 

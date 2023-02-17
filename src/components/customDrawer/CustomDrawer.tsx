@@ -9,15 +9,23 @@ import ListIcon from "@mui/icons-material/List";
 import GridViewIcon from "@mui/icons-material/GridView";
 import ListItemText from "@mui/material/ListItemText";
 import { Drawer } from '@mui/material';
+import {useNavigate} from "react-router-dom";
 
 export const CustomDrawer = () => {
     const [selectedIndex, setSelectedIndex] = useState(0);
+    const navigate = useNavigate()
     const drawerWidth = 252;
     const handleListItemClick = (
         event: React.MouseEvent<HTMLDivElement, MouseEvent>,
         index: number,
+        text: string
     ) => {
         setSelectedIndex(index);
+        if (text === 'Blogs') {
+            navigate('/blogs')
+        } else if (text === 'Posts') {
+            navigate('/posts')
+        }
     };
     return (
         <Drawer
@@ -34,7 +42,7 @@ export const CustomDrawer = () => {
                     {['Blogs', 'Posts'].map((text, index) => (
                         <ListItem key={text} disablePadding>
                             <ListItemButton
-                                onClick={(event) => handleListItemClick(event, text === 'Blogs' ? 1 : 2)}
+                                onClick={(event) => handleListItemClick(event, text === 'Blogs' ? 1 : 2, text)}
                                 style={{
                                     borderRight: selectedIndex === 1 && text === 'Blogs' ? '2px solid #F8346B'
                                         : selectedIndex === 2 && text === 'Posts' ? '2px solid #F8346B' : '',
