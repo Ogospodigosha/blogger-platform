@@ -2,9 +2,11 @@ import {combineReducers} from "redux";
 import {configureStore} from "@reduxjs/toolkit";
 import thunk from "redux-thunk";
 import {blogsReducer} from "../features/blogs/blogsPage/blogs-reducer";
+import {appReducer} from "./app-reducer";
 
 const rootReducer = combineReducers({
-    blogs: blogsReducer
+    blogs: blogsReducer,
+    app: appReducer
 })
 export type RootReducerType = typeof rootReducer
 export const store = configureStore({

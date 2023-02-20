@@ -1,6 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {BlogsApi, BlogsResponseType, BlogType} from "../../../api/BlogsApi";
-import {ResponseType} from "axios";
+import {BlogsApi, BlogsResponseType} from "../../../api/BlogsApi";
+import {setAppStatus} from "../../../app/app-reducer";
 
 
 
@@ -9,10 +9,11 @@ export const fetchBlogs = createAsyncThunk('blogs/fetchBlogs', async (param, {
     dispatch,
     rejectWithValue
 }) => {
-    // dispatch(SetAppStatus({status: 'loading'}))
+    debugger
+    dispatch(setAppStatus({status: 'loading'}))
     try {
         const res = await BlogsApi.getBlogs()
-        // dispatch(SetAppStatus({status: 'succeeded'}))
+        dispatch(setAppStatus({status: 'succeeded'}))
         return {blogs: res.data}
     } catch (e) {
         return rejectWithValue(null)
