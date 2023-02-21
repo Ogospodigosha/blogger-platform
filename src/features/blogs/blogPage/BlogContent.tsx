@@ -11,13 +11,16 @@ export const BlogContent = () => {
     const {fetchBlog} = useActions(AsyncBlogActions)
     const blog = useSelector(BlogsSelector.selectBlog)
     const {blogId} = useParams()
+    const convertDataFormat = (value: string) => {
+        return new Intl.DateTimeFormat('ru-RU').format(new Date(value))
+    }
     useEffect(() => {
         if (blogId) {
           fetchBlog({id:blogId})
         }
     }, [blogId])
     return (
-        <Box component="main" sx={{flexGrow: 1, p: 3, backgroundColor: "#DEDBDC", minHeight: "100vh", marginTop: '29px'}}>
+        <Box component="main" sx={{flexGrow: 1, p: 3, backgroundColor: "#FAF7F8", minHeight: "100vh", marginTop: '29px'}}>
             <Toolbar/>
             <Breadcrumbs separator="⏵" aria-label="breadcrumb">
                 <Link underline="none" color="black" href="/" className={s.header} >
@@ -29,11 +32,19 @@ export const BlogContent = () => {
             </Breadcrumbs>
             <Divider sx={{marginBottom:'35px', marginTop: '7px'}}/>
             <NavLink to={'/'} className={s.link}>
-                <div style={{display:'flex', alignItems: 'center'}}>
-                    <WestIcon style={{color: 'black'}}/>
-                    <div style={{marginLeft: '13px'}}>Back to blogs</div>
+                <div className={s.flex}>
+                    <WestIcon className={s.colorIcon}/>
+                    <div className={s.margin}>Back to blogs</div>
                 </div>
             </NavLink>
+            <div style={{width: '100%', height: '312px', backgroundColor: 'white', marginBottom: '28px'}}></div>
+            <div className={s.flex}>
+                <div className={s.img}></div>
+                <div className={s.name}>{blog.name}</div>
+                <div className={s.date}>{convertDataFormat(blog.createdAt)}</div>
+                {/*<div className={s.website}>Website:<a className={s.link} href={blog.websiteUrl}>{blog.websiteUrl}</a></div>*/}
+                {/*<div className={s.description}>{blog.description}</div>*/}
+            </div>
         </Box>
     );
 };

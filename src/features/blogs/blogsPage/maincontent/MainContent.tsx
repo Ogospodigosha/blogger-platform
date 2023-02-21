@@ -17,7 +17,7 @@ export const MainContent = () => {
         fetchBlogs()
     },[])
     return (
-        <Box component="main" sx={{flexGrow: 1, p: 3, backgroundColor: "#DEDBDC", minHeight: "100vh"}}>
+        <Box component="main" sx={{flexGrow: 1, p: 3, backgroundColor: "#FAF7F8", minHeight: "100vh"}}>
             <Toolbar/>
             <div className={s.header}>Blogs</div>
             <Divider sx={{marginBottom: '23px'}}/>

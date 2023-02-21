@@ -18,3 +18,14 @@
     line-height: 24px;
     font-weight: 400
 }
+.colorIcon {
+    color: black;
+}
+.margin {
+    margin-left: 13px;
+}
+.flex {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
