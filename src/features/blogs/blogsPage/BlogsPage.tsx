@@ -1,7 +1,7 @@
 import React from 'react';
 import CssBaseline from "@mui/material/CssBaseline";
 import {CustomDrawer} from "../../../components/customDrawer/CustomDrawer";
-import {MainContent} from "../../../components/maincontent/MainContent";
+import {MainContent} from "./maincontent/MainContent";
 import Box from "@mui/material/Box";
 
 export const BlogsPage = () => {

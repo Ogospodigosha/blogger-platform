@@ -4,7 +4,7 @@ import {setAppStatus} from "../../../app/app-reducer";
 
 
 
-export const fetchBlog = createAsyncThunk('blog/fetchBlog', async (param:{id: string}, {
+const fetchBlog = createAsyncThunk('blog/fetchBlog', async (param:{id: string}, {
     dispatch,
     rejectWithValue
 }) => {
@@ -18,8 +18,12 @@ export const fetchBlog = createAsyncThunk('blog/fetchBlog', async (param:{id: st
         return rejectWithValue(null)
     }
 })
-const initialState = {} as BlogType
 
+export const asyncActions = {
+    fetchBlog
+}
+
+const initialState = {} as BlogType
 export const slice = createSlice({
     name:'blog',
     initialState: initialState,

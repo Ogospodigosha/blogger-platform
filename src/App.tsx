@@ -25,7 +25,7 @@ function App() {
                     {appStatus === "loading" && <LinearProgress color={'secondary'} />}
                 </div>
                 <Toolbar>
-                    <Typography variant="h6" noWrap component="div" style={{color: 'black', cursor: 'pointer'}}>
+                    <Typography variant="h6" noWrap component="div" sx={{color: 'black', cursor: 'pointer'}}>
                         Blogger Platform
                     </Typography>
                 </Toolbar>
