@@ -7,8 +7,10 @@ const instance = axios.create ({
 
 export const BlogsApi = {
     getBlogs(){
-        debugger
         return instance.get<BlogsResponseType>('blogs')
+    },
+    getBlog(id: string){
+        return instance.get(`blogs/${id}`)
     }
 }
 export type BlogType = {

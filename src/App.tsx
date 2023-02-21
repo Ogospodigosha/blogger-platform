@@ -10,6 +10,8 @@ import {useSelector} from "react-redux";
 import {AppRootState} from "./app/store";
 import {RequestStatusType} from "./app/app-reducer";
 import {LinearProgress} from "@mui/material";
+import {BlogPage} from "./features/blogs/blogPage/BlogPage";
+
 
 
 function App() {
@@ -22,7 +24,6 @@ function App() {
                 <div style={{height: '2px'}}>
                     {appStatus === "loading" && <LinearProgress color={'secondary'} />}
                 </div>
-
                 <Toolbar>
                     <Typography variant="h6" noWrap component="div" style={{color: 'black', cursor: 'pointer'}}>
                         Blogger Platform
@@ -32,6 +33,7 @@ function App() {
             <Routes>
                 <Route path={'/'} element={<BlogsPage/>}/>
                 <Route path={'/blogs'} element={<BlogsPage/>}/>
+                <Route path={'/blog/:blogId'} element={<BlogPage/>}/>
                 <Route path={'/posts'} element={<h1 style={{marginLeft: "399px", marginTop: '200px'}}>POSTS</h1>}/>
                 <Route path={'/404'}
                        element={<h1 style={{marginLeft: "399px", marginTop: '200px'}}>404: PAGE NOT FOUND</h1>}/>

@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import Toolbar from "@mui/material/Toolbar";
 import Box from "@mui/material/Box";
 import s from './MainContent.module.css'
-import {Divider, LinearProgress} from '@mui/material';
+import {Divider} from '@mui/material';
 import {Search} from "../search/Search";
 import {MainSelect} from "../mainSelect/MainSelect";
 import {useDispatch, useSelector} from "react-redux";
@@ -19,10 +19,8 @@ export const MainContent = () => {
     },[])
     return (
         <Box component="main" sx={{flexGrow: 1, p: 3, backgroundColor: "#DEDBDC", minHeight: "100vh"}}>
-
             <Toolbar/>
             <div className={s.header}>Blogs</div>
-            {/*<LinearProgress  color={'secondary'}/>*/}
             <Divider style={{marginBottom: '23px'}}/>
             <div style={{display: 'flex',  alignItems: 'center'}}>
                 <Search/>
