@@ -29,3 +29,44 @@
     align-items: center;
     margin-bottom: 12px;
 }
+.img {
+    min-width: 144px;
+    height: 144px;
+    border: 5px solid #DEDBDC;
+    background-color: #fff;
+    border-radius: 50%;
+    margin-right: 16px;
+}
+.name {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 24px;
+    color:#1A1718;
+    margin-bottom: 32px;
+}
+.spanDate {
+    color: #797476;
+    line-height: 16px;
+    font-size: 12px;
+    font-weight: 400;
+}
+.date {
+    line-height: 16px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #1A1718
+}
+.url {
+    color: #3677F7
+}
+.website {
+    color:#737067;
+    font-size:14px;
+    line-height:24px;
+    margin-bottom:12px
+}
+.description {
+    color:#1A1718;
+    font-size:14px;
+    line-height:24px
+}
