@@ -5,15 +5,20 @@ import {NavLink, useParams} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import WestIcon from '@mui/icons-material/West';
 import {AsyncBlogActions, BlogsSelector} from "../index";
-import {useActions} from "../../../utils/useAction";
+import {useActions, useAppDispatch} from "../../../utils/useAction";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
-import {PostsApi} from "../../../api/PostsApi";
+import {PostsResponseType} from "../../../api/PostsApi";
+import {fetchPostsById} from "../../posts/posts-reducer";
+import {AppRootState} from "../../../app/store";
 export const BlogContent = () => {
     const [showMore, setShowMore] = useState(false);
     const {fetchBlog} = useActions(AsyncBlogActions)
     const blog = useSelector(BlogsSelector.selectBlog)
+    const post = useSelector<AppRootState, PostsResponseType>(state=> state.posts)
+    console.log(post)
     const {blogId} = useParams()
+    const dispatch = useAppDispatch()
 
     const convertDataFormat = (value: string) => {
         return new Intl.DateTimeFormat('ru-RU').format(new Date(value))
@@ -25,8 +30,7 @@ export const BlogContent = () => {
     useEffect(() => {
         if (blogId) {
           fetchBlog({id:blogId})
-            // let a = PostsApi.getPostsById(blogId)
-            // console.log(a)
+            dispatch(fetchPostsById({id:blogId}))
         }
 
     }, [blogId])
@@ -63,7 +67,15 @@ export const BlogContent = () => {
                     </div>}
                 </div>
             </div>
-            <Divider variant="fullWidth"/>
+            <Divider variant="fullWidth" sx={{marginBottom:'48px'}}/>
+            <div className={s.flexPosts}>
+            {post.items && post.items.map((el)=><div style={{marginRight:'20px'}}>
+                <div className={s.postImg}></div>
+                <div className={s.title}>{el.title}</div>
+                <div className={s.shortDescription}>{el.shortDescription}</div>
+                <div className={s.postDate}>{el.createdAt!== undefined && convertDataFormat(el.createdAt)}</div>
+            </div>)}
+            </div>
         </Box>
     );
 };
