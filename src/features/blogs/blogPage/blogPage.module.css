@@ -68,5 +68,15 @@
 .description {
     color:#1A1718;
     font-size:14px;
-    line-height:24px
+    line-height:24px;
+    margin-bottom: 5px;
+}
+.btn {
+    color: #797476;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
 }
