@@ -7,7 +7,7 @@ const initialState = {} as PostsResponseType
 
 
 
-export const fetchPostsById = createAsyncThunk('posts/fetchPostsById', async (param:{id: string}, {
+ const fetchPostsById = createAsyncThunk('posts/fetchPostsById', async (param:{id: string}, {
     dispatch,
     rejectWithValue
 }) => {
@@ -21,6 +21,9 @@ export const fetchPostsById = createAsyncThunk('posts/fetchPostsById', async (pa
         return rejectWithValue(null)
     }
 })
+export const asyncActions ={
+    fetchPostsById
+}
 
 export const slice = createSlice({
     name:'posts',

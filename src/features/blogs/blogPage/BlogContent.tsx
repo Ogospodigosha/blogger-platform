@@ -5,26 +5,24 @@ import {NavLink, useParams} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import WestIcon from '@mui/icons-material/West';
 import {AsyncBlogActions, BlogsSelector} from "../index";
-import {useActions, useAppDispatch} from "../../../utils/useAction";
-
-import {PostsResponseType} from "../../../api/PostsApi";
-import {fetchPostsById} from "../../posts/posts-reducer";
-import {AppRootState} from "../../../app/store";
+import {useActions} from "../../../utils/useAction";
 import {PostItem} from "./postItem/PostItem";
 import {BlogInformation} from "./blogInformation/BlogInformation";
+import {AsyncPostsActions, PostsSelector} from "../../posts";
+
 export const BlogContent = () => {
     const {fetchBlog} = useActions(AsyncBlogActions)
+    const {fetchPostsById} = useActions(AsyncPostsActions)
     const blog = useSelector(BlogsSelector.selectBlog)
-    const post = useSelector<AppRootState, PostsResponseType>(state=> state.posts)
+    const post = useSelector(PostsSelector.selectPosts)
     const {blogId} = useParams()
-    const dispatch = useAppDispatch()
     const convertDataFormat = (value: string) => {
         return new Intl.DateTimeFormat('ru-RU').format(new Date(value))
     }
     useEffect(() => {
         if (blogId) {
           fetchBlog({id:blogId})
-            dispatch(fetchPostsById({id:blogId}))
+            fetchPostsById({id:blogId})
         }
 
     }, [blogId])
