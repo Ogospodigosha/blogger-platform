@@ -8,11 +8,13 @@ import {AsyncBlogActions, BlogsSelector} from "../index";
 import {useActions} from "../../../utils/useAction";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import {PostsApi} from "../../../api/PostsApi";
 export const BlogContent = () => {
     const [showMore, setShowMore] = useState(false);
     const {fetchBlog} = useActions(AsyncBlogActions)
     const blog = useSelector(BlogsSelector.selectBlog)
     const {blogId} = useParams()
+
     const convertDataFormat = (value: string) => {
         return new Intl.DateTimeFormat('ru-RU').format(new Date(value))
     }
@@ -23,9 +25,12 @@ export const BlogContent = () => {
     useEffect(() => {
         if (blogId) {
           fetchBlog({id:blogId})
+            // let a = PostsApi.getPostsById(blogId)
+            // console.log(a)
         }
 
     }, [blogId])
+
     return (
         <Box component="main" sx={{flexGrow: 1, p: 3, backgroundColor: "#FAF7F8", minHeight: "100vh", marginTop: '29px'}}>
             <Toolbar/>
@@ -51,9 +56,9 @@ export const BlogContent = () => {
                     <div className={s.name}>{blog.name}</div>
                     <div className={s.date}><span className={s.spanDate}>blog creation date:</span>{blog.createdAt !== undefined ? convertDataFormat(blog.createdAt): '' }</div>
                     <div className={s.website}>Website:<a className={s.url} href={blog.websiteUrl}>{blog.websiteUrl}</a></div>
-                    <div className={s.description}>{showMore ? blog.description :`${blog.description && blog.description.substring(0, 200)}`}</div>
+                    <div className={s.description}>{showMore ? blog.description :`${blog.description && blog.description.substring(0, 200)}...`}</div>
                     {blog.description && blog.description.length > 130 && <div className={s.btn} onClick={clickHandler}>
-                        <div>{showMore ? "Show less" : "Show more"}</div>
+                        <div>{showMore ? "Hide" : "Show more"}</div>
                         {showMore ?<ExpandLessIcon/>: <ExpandMoreIcon/>}
                     </div>}
                 </div>
