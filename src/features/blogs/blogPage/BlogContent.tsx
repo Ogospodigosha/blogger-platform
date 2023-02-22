@@ -8,15 +8,13 @@ import {AsyncBlogActions, BlogsSelector} from "../index";
 import {useActions} from "../../../utils/useAction";
 
 export const BlogContent = () => {
-
     const {fetchBlog} = useActions(AsyncBlogActions)
     const blog = useSelector(BlogsSelector.selectBlog)
-    const [date, setDate] = useState(blog.createdAt)
     const {blogId} = useParams()
     const convertDataFormat = (value: string) => {
         return new Intl.DateTimeFormat('ru-RU').format(new Date(value))
     }
-
+    console.log(blog.createdAt)
     useEffect(() => {
         if (blogId) {
           fetchBlog({id:blogId})
@@ -46,7 +44,7 @@ export const BlogContent = () => {
                 <div className={s.img}></div>
                 <div>
                     <div className={s.name}>{blog.name}</div>
-                    <div className={s.date}><span className={s.spanDate}>blog creation date:</span>{blog.createdAt}</div>
+                    <div className={s.date}><span className={s.spanDate}>blog creation date:</span>{blog.createdAt !== undefined ? convertDataFormat(blog.createdAt): '' }</div>
                     <div className={s.website}>Website:<a className={s.url} href={blog.websiteUrl}>{blog.websiteUrl}</a></div>
                     <div className={s.description}>{blog.description}</div>
                 </div>
