@@ -11,6 +11,9 @@ export const PostsApi = {
     },
     getAllPosts(){
         return instance.get<PostsResponseType>('posts')
+    },
+    getPost(id: string){
+        return instance.get(`post/${id}`)
     }
 }
 export type ExtendedLikesInfoType = {

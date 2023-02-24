@@ -5,12 +5,14 @@ import {blogsReducer} from "../features/blogs/blogsPage/blogs-reducer";
 import {appReducer} from "./app-reducer";
 import {blogReducer} from "../features/blogs/blogPage/blog-reducer";
 import {postsReducer} from "../features/posts/posts-reducer";
+import {postReducer} from "../features/posts/postsPage/post-reducer";
 
 const rootReducer = combineReducers({
     blogs: blogsReducer,
     app: appReducer,
     blog: blogReducer,
-    posts: postsReducer
+    posts: postsReducer,
+    post: postReducer
 })
 export type RootReducerType = typeof rootReducer
 export const store = configureStore({

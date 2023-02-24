@@ -39,7 +39,7 @@ function App() {
                 <Route path={'/404'}
                        element={<h1 style={{marginLeft: "399px", marginTop: '200px'}}>404: PAGE NOT FOUND</h1>}/>
                 <Route path={'*'} element={<Navigate to={'/404'}/>}/>
-                <Route path={'/post'} element={<PostPage/>}/>
+                <Route path={'/post/:postId'} element={<PostPage/>}/>
             </Routes>
         </>
     );
