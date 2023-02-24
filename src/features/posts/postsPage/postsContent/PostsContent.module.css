@@ -1,0 +1,17 @@
+.header {
+    color: #1A1718;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 500;
+    margin-top: 29px;
+    margin-bottom: 7px;
+}
+.select {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 24px
+}
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
