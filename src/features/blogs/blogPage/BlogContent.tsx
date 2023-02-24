@@ -48,7 +48,7 @@ export const BlogContent = () => {
             <Divider variant="fullWidth" sx={{marginBottom:'48px'}}/>
             <div className={s.flexPosts}>
             {post.items && post.items.map((el)=><div style={{marginRight:'20px'}}>
-                <PostItem title={el.title} shortDescription={el.shortDescription} createdAt={el.createdAt} key={el.id} />
+                <PostItem title={el.title} shortDescription={el.shortDescription} createdAt={el.createdAt} key={el.id} id={el.id}/>
             </div>)}
             </div>
         </Box>

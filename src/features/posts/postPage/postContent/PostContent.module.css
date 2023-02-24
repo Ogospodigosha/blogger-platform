@@ -1,0 +1,55 @@
+.link {
+    text-decoration: none;
+    color:#1A1718;
+    font-size:14px;
+    line-height: 24px;
+    font-weight: 400
+}
+.flex {
+    display: flex;
+    align-items: center;
+    margin-bottom: 36px;
+}
+.colorIcon {
+    color: black;
+}
+.margin {
+    margin-left: 13px;
+}
+.blogName {
+    color: #1A1718;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+}
+blgFlex {
+    display: flex;
+    align-items:center;
+    margin-bottom: 28px
+}
+.title {
+    color: #1A1718;
+    font-size: 22px;
+    line-height: 24px;
+    font-weight: 600;
+}
+.title {
+    color: #1A1718;
+    font-size: 22px;
+    line-height: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.date {
+    color: #797476;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+.content {
+    color: #1A1718;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+}
