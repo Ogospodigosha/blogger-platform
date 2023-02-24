@@ -13,7 +13,7 @@ export const PostsApi = {
         return instance.get<PostsResponseType>('posts')
     },
     getPost(id: string){
-        return instance.get(`post/${id}`)
+        return instance.get(`posts/${id}`)
     }
 }
 export type ExtendedLikesInfoType = {

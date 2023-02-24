@@ -5,7 +5,8 @@ import {blogsReducer} from "../features/blogs/blogsPage/blogs-reducer";
 import {appReducer} from "./app-reducer";
 import {blogReducer} from "../features/blogs/blogPage/blog-reducer";
 import {postsReducer} from "../features/posts/posts-reducer";
-import {postReducer} from "../features/posts/postsPage/post-reducer";
+import {postReducer} from "../features/posts/postPage/postContent/post-reducer";
+
 
 const rootReducer = combineReducers({
     blogs: blogsReducer,

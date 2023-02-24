@@ -11,7 +11,6 @@ import s from './PostsContent.module.css'
 
 export const PostsContent = () => {
     const posts = useSelector(PostsSelector.selectPosts)
-    console.log(posts)
     const {fetchAllPosts} = useActions(AsyncPostsActions)
     useEffect(() => {
         fetchAllPosts()

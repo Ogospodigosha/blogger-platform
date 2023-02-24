@@ -1,3 +1,4 @@
 import {AppRootState} from "../../app/store";
 
 export const selectPosts = (state:AppRootState)=> state.posts
+export const selectPost = (state:AppRootState)=> state.post

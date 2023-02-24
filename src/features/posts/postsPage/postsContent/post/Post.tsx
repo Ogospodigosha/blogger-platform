@@ -10,7 +10,7 @@ type PropsType = {
 export const Post:React.FC<PropsType> = ({el}) => {
     const navigate = useNavigate()
     const onClickHandler =(id: string)=>{
-        navigate(`/post/${id}`)
+        navigate(`/posts/${id}`)
     }
     return (
         <div className={s.card}>

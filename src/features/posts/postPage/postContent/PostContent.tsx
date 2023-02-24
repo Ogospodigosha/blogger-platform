@@ -1,9 +1,22 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Box, Breadcrumbs, Divider, Link, Toolbar} from "@mui/material";
 import s from "../../postsPage/postsContent/PostsContent.module.css";
+import {useActions} from "../../../../utils/useAction";
+import {AsyncPostActions, PostsSelector} from "../../index";
+import {useParams} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 
 export const PostContent = () => {
+    const post = useSelector(PostsSelector.selectPost)
+    const {fetchPost} = useActions(AsyncPostActions)
+    const {postId} = useParams()
+    console.log(post)
+    useEffect(()=>{
+        if (postId) {
+            fetchPost({id: postId})
+        }
+    },[])
     return (
         <Box component="main" sx={{flexGrow: 1, p: 3, backgroundColor: "#FAF7F8", minHeight: "100vh"}}>
             <Toolbar/>
