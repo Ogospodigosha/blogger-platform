@@ -5,13 +5,13 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import {Navigate, Route, Routes} from "react-router-dom";
 import {BlogsPage} from "./features/blogs/blogsPage/BlogsPage";
-import {CustomizedSnackbars} from "./components/errorSnackBar/CustomizedSnackbars";
 import {useSelector} from "react-redux";
 import {AppRootState} from "./app/store";
 import {RequestStatusType} from "./app/app-reducer";
 import {LinearProgress} from "@mui/material";
 import {BlogPage} from "./features/blogs/blogPage/BlogPage";
 import {PostsPage} from "./features/posts/postsPage/PostsPage";
+import {PostPage} from "./features/posts/postPage/PostPage";
 
 
 
@@ -39,6 +39,7 @@ function App() {
                 <Route path={'/404'}
                        element={<h1 style={{marginLeft: "399px", marginTop: '200px'}}>404: PAGE NOT FOUND</h1>}/>
                 <Route path={'*'} element={<Navigate to={'/404'}/>}/>
+                <Route path={'/post'} element={<PostPage/>}/>
             </Routes>
         </>
     );
