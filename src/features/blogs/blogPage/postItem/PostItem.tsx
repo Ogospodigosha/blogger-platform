@@ -1,14 +1,14 @@
 import React from 'react';
 import s from "../blogPage.module.css";
+import {convertDataFormat} from "../../../../utils/convertDataFormat";
 
 type PropsType = {
     title: string
     shortDescription: string
     createdAt: string
-    convertDataFormat: (value: string)=> string
 }
 
-export const PostItem:React.FC<PropsType> = ({title, createdAt, shortDescription, convertDataFormat}) => {
+export const PostItem:React.FC<PropsType> = ({title, createdAt, shortDescription}) => {
     return (
         <>
             <div className={s.postImg}></div>

@@ -16,9 +16,7 @@ export const BlogContent = () => {
     const blog = useSelector(BlogsSelector.selectBlog)
     const post = useSelector(PostsSelector.selectPosts)
     const {blogId} = useParams()
-    const convertDataFormat = (value: string) => {
-        return new Intl.DateTimeFormat('ru-RU').format(new Date(value))
-    }
+
     useEffect(() => {
         if (blogId) {
           fetchBlog({id:blogId})
@@ -46,11 +44,11 @@ export const BlogContent = () => {
                 </div>
             </NavLink>
             <div style={{width: '100%', height: '312px', backgroundColor: 'white', marginBottom: '28px'}}></div>
-            <BlogInformation convertDataFormat={convertDataFormat}/>
+            <BlogInformation/>
             <Divider variant="fullWidth" sx={{marginBottom:'48px'}}/>
             <div className={s.flexPosts}>
             {post.items && post.items.map((el)=><div style={{marginRight:'20px'}}>
-                <PostItem convertDataFormat={convertDataFormat} title={el.title} shortDescription={el.shortDescription} createdAt={el.createdAt} key={el.id} />
+                <PostItem title={el.title} shortDescription={el.shortDescription} createdAt={el.createdAt} key={el.id} />
             </div>)}
             </div>
         </Box>

@@ -11,6 +11,7 @@ import {AppRootState} from "./app/store";
 import {RequestStatusType} from "./app/app-reducer";
 import {LinearProgress} from "@mui/material";
 import {BlogPage} from "./features/blogs/blogPage/BlogPage";
+import {PostsPage} from "./features/posts/postsPage/PostsPage";
 
 
 
@@ -34,7 +35,7 @@ function App() {
                 <Route path={'/'} element={<BlogsPage/>}/>
                 <Route path={'/blogs'} element={<BlogsPage/>}/>
                 <Route path={'/blog/:blogId'} element={<BlogPage/>}/>
-                <Route path={'/posts'} element={<h1 style={{marginLeft: "399px", marginTop: '200px'}}>POSTS</h1>}/>
+                <Route path={'/posts'} element={<PostsPage/>}/>
                 <Route path={'/404'}
                        element={<h1 style={{marginLeft: "399px", marginTop: '200px'}}>404: PAGE NOT FOUND</h1>}/>
                 <Route path={'*'} element={<Navigate to={'/404'}/>}/>

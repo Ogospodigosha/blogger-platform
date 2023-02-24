@@ -1,5 +1,5 @@
 import axios from "axios"
-import {BlogType} from "./BlogsApi";
+
 
 const instance = axios.create ({
     baseURL: 'https://blogs-nest-torm.vercel.app/',
@@ -8,6 +8,9 @@ const instance = axios.create ({
 export const PostsApi = {
     getPostsById(id: string) {
         return instance.get<PostsResponseType>(`blogs/${id}/posts`)
+    },
+    getAllPosts(){
+        return instance.get<PostsResponseType>('posts')
     }
 }
 export type ExtendedLikesInfoType = {

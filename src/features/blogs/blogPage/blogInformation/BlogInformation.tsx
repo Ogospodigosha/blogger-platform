@@ -4,12 +4,11 @@ import {BlogsSelector} from "../../index";
 import {useSelector} from 'react-redux';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import {convertDataFormat} from "../../../../utils/convertDataFormat";
 
 
-type PropsType = {
-    convertDataFormat: (value: string)=> string
-}
-export const BlogInformation:React.FC<PropsType> = ({convertDataFormat}) => {
+
+export const BlogInformation = () => {
     const blog = useSelector(BlogsSelector.selectBlog)
     const [showMore, setShowMore] = useState(false);
     const clickHandler = () =>{
