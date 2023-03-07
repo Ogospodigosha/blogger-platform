@@ -11,9 +11,9 @@ const fetchBlogs = createAsyncThunk('blogs/fetchBlogs', async (paramsForSend: Pa
     debugger
     dispatch(setAppStatus({status: 'loading'}))
     try {
-        const res = await BlogsApi.getBlogs({...paramsForSend})
-        dispatch(setAppStatus({status: 'succeeded'}))
-        return {blogs: res.data}
+            const res = await BlogsApi.getBlogs({...paramsForSend})
+            dispatch(setAppStatus({status: 'succeeded'}))
+            return {blogs: res.data}
     } catch (e) {
         return rejectWithValue(null)
     }
