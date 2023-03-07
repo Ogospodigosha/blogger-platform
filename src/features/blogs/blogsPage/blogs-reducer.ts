@@ -1,4 +1,4 @@
-import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {BlogsApi, BlogsResponseType, ParamsForGetBlogs} from "../../../api/BlogsApi";
 import {setAppStatus} from "../../../app/app-reducer";
 
@@ -17,7 +17,9 @@ const fetchBlogs = createAsyncThunk('blogs/fetchBlogs', async (paramsForSend: Pa
     } catch (e) {
         return rejectWithValue(null)
     }
-})
+}
+)
+
 
 export const asyncActions = {
     fetchBlogs
@@ -28,7 +30,11 @@ const initialState = {} as BlogsResponseType
 export const slice = createSlice({
     name: 'blogs',
     initialState: initialState,
-    reducers: {},
+    reducers: {
+        changePageSizeBlogs: (state, action: PayloadAction<{size: number}>)=>{
+           state.pageSize = action.payload.size
+        },
+    },
     extraReducers: builder => {
         builder.addCase(fetchBlogs.fulfilled, (state, action)=>{
 
@@ -37,3 +43,4 @@ export const slice = createSlice({
     },
 })
 export const blogsReducer = slice.reducer
+export const {changePageSizeBlogs } = slice.actions
