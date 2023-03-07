@@ -17,6 +17,7 @@ export const BlogsApi = {
 }
 export type ParamsForGetBlogs = {
     pageNumber?: number
+    pageSize?: number
 }
 
 export type BlogType = {

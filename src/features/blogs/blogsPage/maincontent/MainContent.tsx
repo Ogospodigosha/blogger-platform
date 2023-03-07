@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import Toolbar from "@mui/material/Toolbar";
 import Box from "@mui/material/Box";
 import s from './MainContent.module.css'
@@ -11,15 +11,21 @@ import {useActions} from "../../../../utils/useAction";
 import {MainSelect} from "./mainSelect/MainSelect";
 import { useSearchParams } from 'react-router-dom';
 import {getBlogsSearchParams} from "../../../../utils/getBlogsSearchParams";
+import {BlogsResponseType} from "../../../../api/BlogsApi";
 
 export const MainContent = () => {
+
     const [searchParams, setSearchParams] = useSearchParams()
     const blogs = useSelector(BlogsSelector.selectBlogs)
     const {fetchBlogs} = useActions(AsyncBlogsActions)
     const actualBlogsParams = getBlogsSearchParams(searchParams)
+
+    console.log(blogs)
     useEffect(()=>{
+        setSearchParams({pageSize:"15"})
         fetchBlogs(getBlogsSearchParams(searchParams))
     },[])
+
     return (
         <Box component="main" sx={{flexGrow: 1, p: 3, backgroundColor: "#FAF7F8", minHeight: "100vh"}}>
             <Toolbar/>

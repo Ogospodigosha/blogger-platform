@@ -11,7 +11,7 @@ const fetchBlogs = createAsyncThunk('blogs/fetchBlogs', async (paramsForSend: Pa
     debugger
     dispatch(setAppStatus({status: 'loading'}))
     try {
-        const res = await BlogsApi.getBlogs(paramsForSend)
+        const res = await BlogsApi.getBlogs({...paramsForSend})
         dispatch(setAppStatus({status: 'succeeded'}))
         return {blogs: res.data}
     } catch (e) {
@@ -31,6 +31,7 @@ export const slice = createSlice({
     reducers: {},
     extraReducers: builder => {
         builder.addCase(fetchBlogs.fulfilled, (state, action)=>{
+
            return action.payload.blogs
         })
     },

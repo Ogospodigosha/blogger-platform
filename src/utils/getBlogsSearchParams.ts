@@ -4,7 +4,7 @@ export const getBlogsSearchParams = (searchParams: URLSearchParams) => {
     return {
 
         pageNumber: +params.pageNumber || undefined,
-
+        pageSize: +params.pageSize || undefined
 
     }
 }
