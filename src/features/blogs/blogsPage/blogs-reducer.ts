@@ -1,17 +1,17 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {BlogsApi, BlogsResponseType} from "../../../api/BlogsApi";
+import {BlogsApi, BlogsResponseType, ParamsForGetBlogs} from "../../../api/BlogsApi";
 import {setAppStatus} from "../../../app/app-reducer";
 
 
 
-const fetchBlogs = createAsyncThunk('blogs/fetchBlogs', async (param, {
+const fetchBlogs = createAsyncThunk('blogs/fetchBlogs', async (paramsForSend: ParamsForGetBlogs, {
     dispatch,
     rejectWithValue
 }) => {
     debugger
     dispatch(setAppStatus({status: 'loading'}))
     try {
-        const res = await BlogsApi.getBlogs()
+        const res = await BlogsApi.getBlogs(paramsForSend)
         dispatch(setAppStatus({status: 'succeeded'}))
         return {blogs: res.data}
     } catch (e) {

@@ -6,13 +6,19 @@ const instance = axios.create ({
 })
 
 export const BlogsApi = {
-    getBlogs(){
-        return instance.get<BlogsResponseType>('blogs')
+    getBlogs(params:ParamsForGetBlogs){
+        return instance.get<BlogsResponseType>('blogs', {
+            params: {...params}
+        })
     },
     getBlog(id: string){
         return instance.get(`blogs/${id}`)
     }
 }
+export type ParamsForGetBlogs = {
+    pageNumber?: number
+}
+
 export type BlogType = {
     id: string
     name: string
